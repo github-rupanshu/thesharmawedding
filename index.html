@@ -146,10 +146,11 @@
       color: var(--cream);
       padding: 60px 20px;
       /* Hero shows the portrait prominently with only a gentle wash for
-         text legibility — focal point shifted up so faces sit high. */
+         text legibility. Uses the couple-focused crop so the pair stays
+         centered; mobile swaps to a taller portrait crop (see media query). */
       background:
-        linear-gradient(to bottom, rgba(79,97,82,.28), rgba(79,97,82,.12) 35%, rgba(74,68,60,.55)),
-        url("images/couple.jpeg") center 18% / cover no-repeat;
+        linear-gradient(to bottom, rgba(79,97,82,.30), rgba(79,97,82,.14) 35%, rgba(74,68,60,.58)),
+        url("images/couple-wide.jpeg") center 30% / cover no-repeat;
       overflow: hidden;
     }
     /* Subtle decorative gold rings floating in the background */
@@ -278,7 +279,7 @@
     .families {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
-      align-items: center;
+      align-items: start;
       gap: clamp(20px, 5vw, 50px);
       margin-top: 54px;
       text-align: center;
@@ -293,7 +294,10 @@
       color: var(--sage-deep);
       margin: 4px 0 10px;
     }
-    .family__parents { font-size: .95rem; color: var(--ink); }
+    .family__parents {
+      font-size: .95rem; color: var(--ink);
+      max-width: 300px; margin-inline: auto;
+    }
     .family__parents small {
       display: block; font-size: .7rem; letter-spacing: .2em;
       text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
@@ -303,6 +307,7 @@
       font-size: clamp(3rem, 9vw, 5rem);
       color: var(--gold);
       line-height: 1;
+      align-self: center;
     }
 
     /* ============================================================
@@ -358,6 +363,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: clamp(22px, 4vw, 38px);
       margin-top: 54px;
+      align-items: stretch;
     }
     .card {
       background: var(--glass-strong);
@@ -370,7 +376,12 @@
       border: 1px solid var(--gold);
       backdrop-filter: blur(4px);
       transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+    /* Push the map link to the bottom so both cards align it evenly */
+    .card .card__map { margin-top: auto; padding-top: 22px; }
     .card:hover { transform: translateY(-8px); box-shadow: 0 34px 64px rgba(50,60,52,.5); }
     /* Inner gold hairline frame */
     .card::after {
@@ -463,15 +474,59 @@
     /* ============================================================
        8. RESPONSIVE
        ============================================================ */
+
+    /* ---- Tablet & below ---- */
+    @media (max-width: 900px) {
+      :root { --maxw: 760px; }
+      .cards { gap: 22px; }
+    }
+
+    /* ---- Large phones / small tablets ---- */
     @media (max-width: 720px) {
       .families {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 14px;
       }
-      .families__amp { margin: 4px 0; }
-      .cards { grid-template-columns: 1fr; }
-      .hero::before { width: 320px; height: 320px; top: -110px; right: -110px; }
-      .hero::after  { width: 280px; height: 280px; bottom: -110px; left: -110px; }
+      .families__amp { margin: 2px 0; }
+      .cards { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+      .hero::before { width: 300px; height: 300px; top: -100px; right: -100px; }
+      .hero::after  { width: 260px; height: 260px; bottom: -100px; left: -100px; }
+
+      /* Taller, couple-focused crop reads far better on portrait screens */
+      .hero {
+        background:
+          linear-gradient(to bottom, rgba(79,97,82,.28), rgba(79,97,82,.12) 30%, rgba(74,68,60,.6)),
+          url("images/couple-portrait.jpeg") center 20% / cover no-repeat;
+      }
+      .bg-fixed {
+        background:
+          linear-gradient(rgba(251,247,239,.5), rgba(241,235,221,.58)),
+          url("images/couple-portrait.jpeg") center / cover no-repeat;
+      }
+
+      /* Tighten section vertical rhythm on small screens */
+      .blessings, .events, .footer { padding-block: clamp(54px, 14vw, 90px); }
+      .portrait { padding-block: clamp(48px, 12vw, 80px); }
+    }
+
+    /* ---- Small phones ---- */
+    @media (max-width: 420px) {
+      .wrap { width: 92%; }
+      .hero__inner { padding: 30px 20px; }
+      /* Keep countdown on one line without crowding */
+      .countdown { gap: 10px; }
+      .countdown__unit { min-width: 48px; }
+      .countdown__num { font-size: 1.6rem; }
+      .countdown__label { font-size: .55rem; letter-spacing: .15em; }
+      .card { padding: 30px 22px; }
+      .card__venue { max-width: 100%; }
+      .hero::before, .hero::after { display: none; } /* avoid edge clutter */
+    }
+
+    /* ---- Landscape phones (short height) ---- */
+    @media (max-height: 520px) and (orientation: landscape) {
+      .hero { min-height: auto; padding-block: 70px; }
+      .countdown { margin-top: 22px; }
     }
   </style>
 </head>
