@@ -1,536 +1,597 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rupanshu ❤️ Anu | Wedding Invitation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rupanshu &amp; Anu — Wedding Invitation</title>
+  <meta name="description" content="Join us in celebrating the wedding of Rupanshu Sharma & Anu Sharma." />
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- ============================================================
+       FONTS
+       Headings: "Cormorant Garamond" (elegant serif)
+       Accent:   "Tangerine" (flowing script for names)
+       Body:     "Jost" (clean sans-serif)
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
 
-<style>
-:root{
-    --gold:#d4af37;
-    --dark-gold:#b8901f;
-    --maroon:#6d1025;
-    --cream:#fffaf3;
-    --text:#333;
-    --white:#ffffff;
-}
+  <style>
+    /* ============================================================
+       1. DESIGN TOKENS  — change these to re-theme the whole site
+       ============================================================ */
+    :root {
+      --maroon-deep:   #4a0e15;
+      --maroon:        #6b1620;
+      --maroon-soft:   #8a2734;
+      --gold:          #c9a13b;
+      --gold-light:    #e6c873;
+      --gold-pale:     #f3e6c4;
+      --cream:         #fbf6ec;
+      --cream-dim:     #f4ecdc;
+      --ink:           #3a2b24;
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+      --serif:  "Cormorant Garamond", Georgia, serif;
+      --script: "Tangerine", cursive;
+      --sans:   "Jost", "Helvetica Neue", Arial, sans-serif;
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:var(--cream);
-    color:var(--text);
-    line-height:1.7;
-    overflow-x:hidden;
-}
-
-/* Decorative Background */
-body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at top left, rgba(212,175,55,.08), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(109,16,37,.08), transparent 30%);
-    z-index:-1;
-}
-
-/* Common */
-.container{
-    width:min(1100px,92%);
-    margin:auto;
-}
-
-.section{
-    padding:90px 0;
-}
-
-.section-title{
-    text-align:center;
-    font-family:'Cormorant Garamond',serif;
-    font-size:3rem;
-    color:var(--maroon);
-    margin-bottom:20px;
-}
-
-.section-subtitle{
-    text-align:center;
-    max-width:700px;
-    margin:auto;
-    color:#666;
-    margin-bottom:50px;
-}
-
-/* Hero */
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
-    color:white;
-    background:
-    linear-gradient(rgba(50,10,20,.65), rgba(50,10,20,.65)),
-    url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80');
-    background-size:cover;
-    background-position:center;
-}
-
-.hero-content{
-    padding:20px;
-}
-
-.invitation-text{
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:var(--gold);
-    margin-bottom:15px;
-    font-size:.95rem;
-}
-
-.hero h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:5rem;
-    font-weight:700;
-    line-height:1;
-    margin-bottom:10px;
-}
-
-.hero .amp{
-    color:var(--gold);
-}
-
-.hero h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:2rem;
-    font-weight:400;
-    margin-bottom:25px;
-}
-
-.hero p{
-    max-width:700px;
-    margin:auto;
-    font-size:1.05rem;
-}
-
-/* Countdown */
-.countdown{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:40px;
-}
-
-.time-box{
-    width:95px;
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(8px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:14px;
-    padding:15px;
-}
-
-.time-box span{
-    display:block;
-}
-
-.time-box .num{
-    font-size:2rem;
-    font-weight:700;
-    color:var(--gold);
-}
-
-.time-box .label{
-    font-size:.8rem;
-    text-transform:uppercase;
-    letter-spacing:1px;
-}
-
-/* Family Section */
-.family-card{
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 10px 40px rgba(0,0,0,.08);
-    text-align:center;
-}
-
-.family-card h3{
-    font-family:'Cormorant Garamond',serif;
-    color:var(--maroon);
-    font-size:2rem;
-    margin-bottom:15px;
-}
-
-.family-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:30px;
-    margin-top:30px;
-}
-
-.parent-box{
-    padding:25px;
-    border:1px solid rgba(212,175,55,.3);
-    border-radius:15px;
-}
-
-.parent-box h4{
-    color:var(--maroon);
-    margin-bottom:10px;
-}
-
-/* Events */
-.events-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.event-card{
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
-    transition:.35s ease;
-}
-
-.event-card:hover{
-    transform:translateY(-8px);
-}
-
-.event-header{
-    background:linear-gradient(135deg,var(--maroon),#8b1735);
-    color:white;
-    padding:25px;
-    text-align:center;
-}
-
-.event-header h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:2.2rem;
-}
-
-.event-body{
-    padding:30px;
-}
-
-.info{
-    margin-bottom:18px;
-}
-
-.info strong{
-    color:var(--maroon);
-    display:block;
-    margin-bottom:4px;
-}
-
-.venue{
-    color:#555;
-}
-
-/* Footer */
-.footer{
-    background:var(--maroon);
-    color:white;
-    text-align:center;
-    padding:50px 20px;
-}
-
-.footer h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:2.4rem;
-    margin-bottom:10px;
-}
-
-.footer p{
-    color:#f2f2f2;
-}
-
-/* Animation */
-.fade-up{
-    opacity:0;
-    transform:translateY(40px);
-    transition:all .8s ease;
-}
-
-.fade-up.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* Mobile */
-@media(max-width:768px){
-
-    .hero h1{
-        font-size:3.4rem;
+      --maxw: 1100px;
+      --ease: cubic-bezier(.22, 1, .36, 1);
     }
 
-    .hero h2{
-        font-size:1.4rem;
+    /* ============================================================
+       2. RESET & BASE
+       ============================================================ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    .section-title{
-        font-size:2.4rem;
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
+
+    section { position: relative; }
+
+    .wrap { width: 90%; max-width: var(--maxw); margin-inline: auto; }
+
+    /* Small decorative label used above section titles */
+    .eyebrow {
+      font-family: var(--sans);
+      font-weight: 400;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      color: var(--gold);
     }
 
-    .family-grid{
-        grid-template-columns:1fr;
+    /* Reusable gold ornamental divider */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 18px auto 0;
+      max-width: 260px;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to var(--dir, right), transparent, var(--gold));
+    }
+    .ornament::after { --dir: left; }
+    .ornament span { color: var(--gold); font-size: 1.1rem; }
+
+    /* ============================================================
+       3. SCROLL-REVEAL ANIMATION
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 1s var(--ease), transform 1s var(--ease);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    /* Stagger helper */
+    .reveal.d1 { transition-delay: .12s; }
+    .reveal.d2 { transition-delay: .24s; }
+    .reveal.d3 { transition-delay: .36s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
     }
 
-    .family-card{
-        padding:25px;
+    /* ============================================================
+       4. HERO
+       ============================================================ */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--cream);
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(201,161,59,.18), transparent 55%),
+        linear-gradient(160deg, var(--maroon-deep), var(--maroon) 55%, var(--maroon-deep));
+      overflow: hidden;
+    }
+    /* Subtle decorative gold rings floating in the background */
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(201,161,59,.22);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before { width: 520px; height: 520px; top: -160px; right: -160px; }
+    .hero::after  { width: 420px; height: 420px; bottom: -150px; left: -150px; }
+
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(201,161,59,.4);
+      padding: clamp(34px, 7vw, 64px) clamp(22px, 6vw, 70px);
+      max-width: 760px;
+    }
+    /* Tiny corner flourishes on the framed box */
+    .hero__inner::before,
+    .hero__inner::after {
+      content: "❖";
+      position: absolute;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+    .hero__inner::before { top: -10px; left: -10px; background: var(--maroon); padding: 0 6px; }
+    .hero__inner::after  { bottom: -10px; right: -10px; background: var(--maroon-deep); padding: 0 6px; }
+
+    .hero .eyebrow { color: var(--gold-light); }
+
+    .hero__names {
+      font-family: var(--script);
+      font-size: clamp(4rem, 14vw, 8.5rem);
+      color: var(--gold-light);
+      line-height: .9;
+      margin: 8px 0 4px;
+      text-shadow: 0 2px 20px rgba(0,0,0,.35);
+    }
+    .hero__amp { display: block; font-size: .5em; color: var(--cream); opacity: .85; }
+
+    .hero__tag {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 3.4vw, 1.6rem);
+      color: var(--gold-pale);
+      margin-top: 6px;
+    }
+    .hero__date {
+      margin-top: 22px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-size: .8rem;
+      color: var(--cream);
     }
 
-    .time-box{
-        width:80px;
+    /* ---- Countdown ---- */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: clamp(14px, 5vw, 38px);
+      margin-top: 34px;
     }
-}
-</style>
+    .countdown__unit { min-width: 58px; }
+    .countdown__num {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .countdown__label {
+      display: block;
+      margin-top: 6px;
+      font-size: .62rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--gold-pale);
+      opacity: .8;
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 26px; left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold-light);
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      z-index: 2;
+      animation: bob 2.4s var(--ease) infinite;
+    }
+    @keyframes bob { 0%,100%{ transform: translate(-50%,0);} 50%{ transform: translate(-50%,8px);} }
+
+    /* ============================================================
+       5. BLESSINGS / FAMILY
+       ============================================================ */
+    .blessings {
+      text-align: center;
+      padding: clamp(70px, 12vw, 120px) 0;
+      background: var(--cream);
+    }
+    .blessings__verse {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.25rem, 3.6vw, 1.7rem);
+      color: var(--maroon);
+      max-width: 620px;
+      margin: 14px auto 0;
+    }
+    .section-title {
+      font-size: clamp(2rem, 6vw, 3rem);
+      color: var(--maroon-deep);
+      margin-top: 8px;
+    }
+
+    .families {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: clamp(20px, 5vw, 50px);
+      margin-top: 54px;
+      text-align: center;
+    }
+    .family__role {
+      font-size: .72rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .family__name {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 5vw, 2.3rem);
+      color: var(--maroon);
+      margin: 4px 0 10px;
+    }
+    .family__parents { font-size: .95rem; color: var(--ink); }
+    .family__parents small {
+      display: block; font-size: .7rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
+    }
+    .families__amp {
+      font-family: var(--script);
+      font-size: clamp(3rem, 9vw, 5rem);
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    /* ============================================================
+       6. EVENTS
+       ============================================================ */
+    .events {
+      padding: clamp(70px, 12vw, 120px) 0;
+      text-align: center;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(201,161,59,.12), transparent 50%),
+        linear-gradient(180deg, var(--maroon-deep), var(--maroon));
+    }
+    .events .eyebrow { color: var(--gold-light); }
+    .events .section-title { color: var(--gold-light); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(22px, 4vw, 38px);
+      margin-top: 54px;
+    }
+    .card {
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 4px;
+      padding: clamp(28px, 5vw, 46px) clamp(22px, 4vw, 38px);
+      text-align: center;
+      position: relative;
+      box-shadow: 0 24px 50px rgba(0,0,0,.32);
+      border: 1px solid var(--gold);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+    }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 34px 64px rgba(0,0,0,.42); }
+    /* Inner gold hairline frame */
+    .card::after {
+      content: "";
+      position: absolute; inset: 10px;
+      border: 1px solid rgba(201,161,59,.45);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+    .card__icon { font-size: 1.8rem; color: var(--gold); }
+    .card__name {
+      font-size: clamp(1.6rem, 5vw, 2.1rem);
+      color: var(--maroon-deep);
+      margin: 8px 0 2px;
+    }
+    .card__when {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--maroon-soft);
+    }
+    .card__meta {
+      margin-top: 18px;
+      font-size: .82rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .card__meta strong {
+      display: block;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: normal;
+      text-transform: none;
+      color: var(--ink);
+      margin-top: 2px;
+    }
+    .card__venue {
+      margin-top: 18px;
+      font-size: .96rem;
+      color: var(--ink);
+      max-width: 280px;
+      margin-inline: auto;
+    }
+    .card__map {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 3px;
+      transition: color .3s ease, border-color .3s ease;
+    }
+    .card__map:hover { color: var(--gold); border-color: var(--maroon); }
+
+    /* ============================================================
+       7. FOOTER / RSVP
+       ============================================================ */
+    .footer {
+      text-align: center;
+      padding: clamp(64px, 11vw, 110px) 20px;
+      background: var(--cream-dim);
+    }
+    .footer__script {
+      font-family: var(--script);
+      font-size: clamp(3rem, 11vw, 5.5rem);
+      color: var(--maroon);
+      line-height: 1;
+    }
+    .footer__line {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.05rem, 3.4vw, 1.4rem);
+      color: var(--maroon-soft);
+      margin-top: 6px;
+    }
+    .footer__hash {
+      margin-top: 26px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      color: var(--gold);
+    }
+
+    /* ============================================================
+       8. RESPONSIVE
+       ============================================================ */
+    @media (max-width: 720px) {
+      .families {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .families__amp { margin: 4px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .hero::before { width: 320px; height: 320px; top: -110px; right: -110px; }
+      .hero::after  { width: 280px; height: 280px; bottom: -110px; left: -110px; }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- HERO SECTION -->
-<section class="hero">
-    <div class="hero-content">
+  <!-- ============================================================
+       HERO BANNER
+       ============================================================ -->
+  <header class="hero">
+    <div class="hero__inner reveal is-visible">
+      <p class="eyebrow">Together with their families</p>
+      <h1 class="hero__names">
+        Rupanshu
+        <span class="hero__amp">&amp;</span>
+        Anu
+      </h1>
+      <p class="hero__tag">are getting married</p>
+      <p class="hero__date">29 &amp; 30 June 2026</p>
 
-        <div class="invitation-text">
-            Wedding Invitation
-        </div>
-
-        <h1>
-            Rupanshu
-            <span class="amp">&</span>
-            Anu
-        </h1>
-
-        <h2>Together With Their Families</h2>
-
-        <p>
-            Request the honour of your presence as they begin
-            a beautiful new chapter of love, laughter, and togetherness.
-        </p>
-
-        <div class="countdown">
-            <div class="time-box">
-                <span class="num" id="days">0</span>
-                <span class="label">Days</span>
-            </div>
-
-            <div class="time-box">
-                <span class="num" id="hours">0</span>
-                <span class="label">Hours</span>
-            </div>
-
-            <div class="time-box">
-                <span class="num" id="minutes">0</span>
-                <span class="label">Minutes</span>
-            </div>
-
-            <div class="time-box">
-                <span class="num" id="seconds">0</span>
-                <span class="label">Seconds</span>
-            </div>
-        </div>
-
+      <!-- Countdown to the wedding day -->
+      <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
+        <div class="countdown__unit"><span class="countdown__num" id="cd-days">--</span><span class="countdown__label">Days</span></div>
+        <div class="countdown__unit"><span class="countdown__num" id="cd-hours">--</span><span class="countdown__label">Hours</span></div>
+        <div class="countdown__unit"><span class="countdown__num" id="cd-mins">--</span><span class="countdown__label">Minutes</span></div>
+        <div class="countdown__unit"><span class="countdown__num" id="cd-secs">--</span><span class="countdown__label">Seconds</span></div>
+      </div>
     </div>
-</section>
+    <span class="scroll-cue">Scroll&nbsp;↓</span>
+  </header>
 
-<!-- FAMILY -->
-<section class="section">
-    <div class="container">
+  <!-- ============================================================
+       BLESSINGS / FAMILY INTRODUCTION
+       ============================================================ -->
+  <section class="blessings">
+    <div class="wrap">
+      <p class="eyebrow reveal">With the blessings of the Almighty</p>
+      <p class="blessings__verse reveal d1">
+        “Two souls, one heart — woven together by love,
+        and bound by the blessings of our families.”
+      </p>
+      <div class="ornament reveal d1"><span>❧</span></div>
 
-        <div class="family-card fade-up">
+      <h2 class="section-title reveal" style="margin-top:48px;">Our Families</h2>
+      <div class="ornament reveal"><span>✦</span></div>
 
-            <h3>With the Blessings of Their Families</h3>
-
-            <p>
-                We joyfully invite you to celebrate our wedding and reception
-                and seek your blessings on this special occasion.
-            </p>
-
-            <div class="family-grid">
-
-                <div class="parent-box">
-                    <h4>Groom's Family</h4>
-                    <p><strong>Rupanshu Sharma</strong></p>
-                    <p>Son of</p>
-                    <p>Laxmi Devi</p>
-                    <p>Lt. Ram Kumar Sharma</p>
-                </div>
-
-                <div class="parent-box">
-                    <h4>Bride's Family</h4>
-                    <p><strong>Anu Sharma</strong></p>
-                    <p>Daughter of</p>
-                    <p>Sanju Sharma</p>
-                    <p>Devender Kumar</p>
-                </div>
-
-            </div>
-
+      <div class="families">
+        <!-- Groom -->
+        <div class="reveal d1">
+          <p class="family__role">The Groom</p>
+          <p class="family__name">Rupanshu Sharma</p>
+          <p class="family__parents">
+            <small>Son of</small>
+            Laxmi Devi &amp; Lt. Ram Kumar Sharma
+          </p>
         </div>
 
-    </div>
-</section>
+        <div class="families__amp reveal d2">&amp;</div>
 
-<!-- EVENTS -->
-<section class="section">
-    <div class="container">
-
-        <h2 class="section-title fade-up">
-            Celebration Details
-        </h2>
-
-        <p class="section-subtitle fade-up">
-            Join us as we celebrate love, family, and togetherness.
-        </p>
-
-        <div class="events-grid">
-
-            <!-- Wedding -->
-            <div class="event-card fade-up">
-
-                <div class="event-header">
-                    <h3>The Wedding</h3>
-                </div>
-
-                <div class="event-body">
-
-                    <div class="info">
-                        <strong>Date</strong>
-                        29 June
-                    </div>
-
-                    <div class="info">
-                        <strong>Time</strong>
-                        7:00 PM (Baarat)
-                    </div>
-
-                    <div class="info">
-                        <strong>Venue</strong>
-                        <div class="venue">
-                            Maharaja Aggarsain Bhawan<br>
-                            Near Old Govt. College Ground<br>
-                            Hisar, Haryana
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Reception -->
-            <div class="event-card fade-up">
-
-                <div class="event-header">
-                    <h3>The Reception</h3>
-                </div>
-
-                <div class="event-body">
-
-                    <div class="info">
-                        <strong>Date</strong>
-                        30 June
-                    </div>
-
-                    <div class="info">
-                        <strong>Time</strong>
-                        7:00 PM Onwards
-                    </div>
-
-                    <div class="info">
-                        <strong>Venue</strong>
-                        <div class="venue">
-                            Hall No. 2<br>
-                            Mapple Gold Banquet<br>
-                            Radisson Blu Hotel<br>
-                            Paschim Vihar, New Delhi
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
+        <!-- Bride -->
+        <div class="reveal d3">
+          <p class="family__role">The Bride</p>
+          <p class="family__name">Anu Sharma</p>
+          <p class="family__parents">
+            <small>Daughter of</small>
+            Sanju Sharma &amp; Devender Kumar
+          </p>
         </div>
-
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+  <!-- ============================================================
+       EVENT ITINERARY
+       ============================================================ -->
+  <section class="events">
+    <div class="wrap">
+      <p class="eyebrow reveal">Join us in celebration</p>
+      <h2 class="section-title reveal d1">The Celebrations</h2>
+      <div class="ornament reveal d1"><span>❖</span></div>
 
-    <h3>We Look Forward To Celebrating With You</h3>
+      <div class="cards">
+        <!-- Event 1: Wedding -->
+        <article class="card reveal d1">
+          <div class="card__icon">💍</div>
+          <h3 class="card__name">The Wedding</h3>
+          <p class="card__when">Baraat &amp; Vows</p>
 
-    <p>
-        Your presence and blessings will make our special day even more memorable.
-    </p>
+          <p class="card__meta">Date<strong>29 June 2026</strong></p>
+          <p class="card__meta">Time<strong>7:00 PM (Baraat)</strong></p>
 
-    <br>
+          <p class="card__venue">
+            Maharaja Aggarsain Bhawan,<br />
+            Near Old Govt. College Ground,<br />
+            Hisar, Haryana
+          </p>
+          <a class="card__map"
+             href="https://www.google.com/maps/search/?api=1&query=Maharaja+Aggarsain+Bhawan+Old+Govt+College+Ground+Hisar+Haryana"
+             target="_blank" rel="noopener">View on Map</a>
+        </article>
 
-    <p>
-        ❤️ Rupanshu & Anu ❤️
-    </p>
+        <!-- Event 2: Reception -->
+        <article class="card reveal d2">
+          <div class="card__icon">🥂</div>
+          <h3 class="card__name">The Reception</h3>
+          <p class="card__when">Dinner &amp; Festivities</p>
 
-</footer>
+          <p class="card__meta">Date<strong>30 June 2026</strong></p>
+          <p class="card__meta">Time<strong>7:00 PM onwards</strong></p>
 
-<script>
+          <p class="card__venue">
+            Hall No. 2, Mapple Gold Banquet,<br />
+            Radisson Blu Hotel, Paschim Vihar,<br />
+            New Delhi
+          </p>
+          <a class="card__map"
+             href="https://www.google.com/maps/search/?api=1&query=Radisson+Blu+Hotel+Paschim+Vihar+New+Delhi"
+             target="_blank" rel="noopener">View on Map</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-/* Countdown */
-const weddingDate = new Date("June 29, 2026 19:00:00").getTime();
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <p class="eyebrow reveal">We can't wait to celebrate with you</p>
+    <p class="footer__script reveal d1">See you there!</p>
+    <p class="footer__line reveal d1">Your presence is the greatest blessing.</p>
+    <div class="ornament reveal d1"><span>❧</span></div>
+    <p class="footer__hash reveal d2">#RupanshuWedsAnu</p>
+  </footer>
 
-function updateCountdown(){
+  <!-- ============================================================
+       JAVASCRIPT — Countdown + Scroll reveal
+       ============================================================ -->
+  <script>
+    /* ---- Countdown timer ----
+       Target: 29 June 2026, 7:00 PM IST (Baraat).
+       Adjust the date string below if the year changes. */
+    (function () {
+      var target = new Date("2026-06-29T19:00:00+05:30").getTime();
+      var els = {
+        days:  document.getElementById("cd-days"),
+        hours: document.getElementById("cd-hours"),
+        mins:  document.getElementById("cd-mins"),
+        secs:  document.getElementById("cd-secs")
+      };
 
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
+      function pad(n) { return n < 10 ? "0" + n : "" + n; }
 
-    if(diff < 0) return;
-
-    const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-    const seconds = Math.floor((diff % (1000*60)) / 1000);
-
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
-}
-
-setInterval(updateCountdown,1000);
-updateCountdown();
-
-/* Scroll Animations */
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
+      function tick() {
+        var diff = target - Date.now();
+        if (diff <= 0) {
+          els.days.textContent = els.hours.textContent =
+          els.mins.textContent = els.secs.textContent = "00";
+          clearInterval(timer);
+          return;
         }
-    });
-},{threshold:.15});
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        els.days.textContent  = pad(d);
+        els.hours.textContent = pad(h);
+        els.mins.textContent  = pad(m);
+        els.secs.textContent  = pad(s);
+      }
+      tick();
+      var timer = setInterval(tick, 1000);
+    })();
 
-document.querySelectorAll('.fade-up').forEach(el=>{
-    observer.observe(el);
-});
-
-</script>
-
+    /* ---- Scroll reveal via IntersectionObserver ---- */
+    (function () {
+      var items = document.querySelectorAll(".reveal:not(.is-visible)");
+      if (!("IntersectionObserver" in window)) {
+        items.forEach(function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      items.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
 </body>
 </html>
-
